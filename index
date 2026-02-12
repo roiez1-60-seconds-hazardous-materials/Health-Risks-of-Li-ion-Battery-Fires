@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>ניתוח 60 שניות של חומ"ס - מחקר FSRI</title>
+
+    <!-- Reveal.js Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;800&family=Heebo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- HazMat Theme Definition --- */
+        :root {
+            --hazmat-orange: #ff5e00;
+            --hazmat-yellow: #facc15;
+            --hazmat-red: #ef4444;
+            --hazmat-dark: #111;
+            --hazmat-glass: rgba(0, 0, 0, 0.75);
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: var(--hazmat-dark);
+        }
+
+        /* Typography */
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+            font-family: 'Heebo', sans-serif;
+            text-transform: none;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .reveal h1 { 
+            font-size: 2.8em; 
+            color: var(--hazmat-orange); 
+            text-shadow: 0 0 30px rgba(255, 94, 0, 0.6); 
+            margin-bottom: 20px;
+        }
+
+        .reveal h2 { 
+            color: #fff; 
+            border-bottom: 4px solid var(--hazmat-orange); 
+            display: inline-block; 
+            padding-bottom: 15px; 
+            margin-bottom: 40px;
+        }
+
+        .reveal p, .reveal li { 
+            font-size: 1.3rem; 
+            line-height: 1.6; 
+            color: #e5e7eb;
+        }
+
+        /* Components */
+        .glass-panel {
+            background: var(--hazmat-glass);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .hazard-box {
+            border: 2px dashed var(--hazmat-yellow);
+            background: rgba(250, 204, 21, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        /* Icon Cards */
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            border-top: 4px solid var(--hazmat-orange);
+            transition: transform 0.3s ease;
+        }
+        .stat-card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.08); }
+        .stat-card i { font-size: 3em; margin-bottom: 15px; color: var(--hazmat-orange); }
+        .stat-card h4 { color: #fff; font-size: 1.2em; margin-bottom: 10px; }
+        .stat-card p { font-size: 0.9em; color: #9ca3af; margin: 0; }
+
+        /* Charts */
+        .chart-container {
+            margin-top: 30px;
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .bar-group { margin-bottom: 15px; }
+        .bar-label { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9em; font-weight: bold; }
+        .bar-track { width: 100%; background: #333; height: 30px; border-radius: 4px; overflow: hidden; }
+        .bar-fill { height: 100%; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; color: #fff; font-size: 0.8em; font-weight: bold; transition: width 1s ease-out; }
+        
+        .fill-ev { background: linear-gradient(90deg, #ff5e00, #ff0000); width: 85%; }
+        .fill-ice { background: #555; width: 25%; }
+
+        /* Credits */
+        .credits {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.8em;
+            color: #888;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- SLIDE 1: HERO TITLE -->
+            <section data-background-image="http://googleusercontent.com/generated_image_content/0" data-background-opacity="0.4">
+                <div class="glass-panel">
+                    <div style="border: 2px solid var(--hazmat-orange); padding: 10px 20px; display: inline-block; border-radius: 50px; margin-bottom: 20px; color: var(--hazmat-orange); font-weight: bold;">
+                        <i class="fa-solid fa-triangle-exclamation"></i> עדכון מחקר 2026
+                    </div>
+                    <h1>ניתוח 60 שניות של חומ"ס</h1>
+                    <h3 style="color: #ccc; font-weight: 300;">סיכונים בריאותיים בשריפות סוללות ליתיום-יון</h3>
+                    <p style="font-size: 1.1em; opacity: 0.9; margin-top: 20px;">
+                        הבנת ההשפעות הגנטיות (מוטגניות) של עשן רכב חשמלי<br>
+                        על בסיס מחקר משותף של <strong>FSRI, UL, EPA, NIOSH</strong>
+                    </p>
+                    
+                    <div class="credits">
+                        <i class="fa-solid fa-pen-nib text-orange"></i>
+                        <span>נותח ע"י <strong>רועי צוקרמן</strong></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 2: THE RESEARCH SCOPE -->
+            <section>
+                <h2>הזירה המחקרית</h2>
+                <div class="grid-2">
+                    <div>
+                        <p>עד היום, רוב המחקרים התמקדו רק בחום או בשחרור גזים. המחקר הנוכחי שובר שוויון:</p>
+                        <ul class="fa-ul" style="font-size: 1.1em;">
+                            <li><span class="fa-li"><i class="fa-solid fa-check-circle" style="color: var(--hazmat-orange);"></i></span><strong>היקף מלא:</strong> שריפה עד כילוי (Burn-down) במעבדה סגורה.</li>
+                            <li><span class="fa-li"><i class="fa-solid fa-check-circle" style="color: var(--hazmat-orange);"></i></span><strong>השוואה ישירה:</strong>
+                                <br>• 6 רכבים חשמליים (EV)
+                                <br>• 2 רכבי בנזין (ICEV)
+                            </li>
+                            <li><span class="fa-li"><i class="fa-solid fa-check-circle" style="color: var(--hazmat-orange);"></i></span><strong>ביולוגיה:</strong> בדיקת ההשפעה על תאים חיים (Ames Test).</li>
+                        </ul>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fa-solid fa-flask-vial"></i>
+                        <h4>השערת המחקר</h4>
+                        <p>"האם עשן הסוללה שונה מהותית מעשן הדלק ברמה התאית?"</p>
+                        <h4 style="color: var(--hazmat-red); margin-top: 20px;">התשובה: כן.</h4>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 3: THE INORGANIC SHIFT -->
+            <section>
+                <h2>מהפך הכימיה</h2>
+                <p>הנתון הדרמטי ביותר במחקר הוא השינוי בהרכב החומר החלקיקי (PM):</p>
+                
+                <div class="chart-container">
+                    <p style="text-align: right; margin-bottom: 15px; font-weight: bold;">כמות יסודות אנאורגניים (מתכות ואל-מתכות) בעשן:</p>
+                    
+                    <div class="bar-group">
+                        <div class="bar-label">
+                            <span>רכב חשמלי (EV)</span>
+                            <span style="color: var(--hazmat-orange);">פי 2 עד 7 יותר!</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill fill-ev">גבוה מאוד</div>
+                        </div>
+                    </div>
+                    
+                    <div class="bar-group">
+                        <div class="bar-label">
+                            <span>רכב בנזין (ICEV)</span>
+                            <span>רגיל</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill fill-ice">נמוך</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 30px; font-size: 0.9em; opacity: 0.7;">
+                    <i class="fa-solid fa-info-circle"></i> בעוד שרכב בנזין פולט בעיקר פיח אורגני, רכב חשמלי פולט "אבק מתכתי" רעיל.
+                </p>
+            </section>
+
+            <!-- SLIDE 4: HEAVY METALS -->
+            <section>
+                <h2>טביעת האצבע המתכתית</h2>
+                <p>עד <strong>30%</strong> ממשקל החלקיקים בעשן EV הם מתכות כבדות.</p>
+                
+                <div class="grid-2" style="margin-top: 30px;">
+                    <div class="stat-card" style="border-color: var(--hazmat-red);">
+                        <i class="fa-solid fa-battery-full"></i>
+                        <h4>החומרים ב-EV</h4>
+                        <div style="text-align: right; margin-top: 15px;">
+                            <p><strong><span style="color: #ff4444;">Ni</span> ניקל:</strong> מסרטן, אלרגני.</p>
+                            <p><strong><span style="color: #ff4444;">Co</span> קובלט:</strong> רעיל ללב ולריאות.</p>
+                            <p><strong><span style="color: #ff4444;">Li</span> ליתיום:</strong> רעילות עצבית.</p>
+                            <p><strong><span style="color: #ff4444;">Mn</span> מנגן:</strong> דמוי פרקינסון.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card" style="border-color: #888; opacity: 0.6;">
+                        <i class="fa-solid fa-gas-pump"></i>
+                        <h4>החומרים ב-ICEV</h4>
+                        <div style="text-align: center; margin-top: 40px;">
+                            <h1 style="color: #ccc;">Zn</h1>
+                            <p><strong>אבץ</strong></p>
+                            <p style="font-size: 0.8em;">(בעיקר מתוספי שמן מנוע)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 5: FLUORIDE RISK -->
+            <section data-background-color="#2a1a00">
+                <div style="position: absolute; top: -50px; left: -50px; font-size: 300px; color: rgba(255,255,255,0.03); z-index: -1;">
+                    <i class="fa-solid fa-skull-crossbones"></i>
+                </div>
+                
+                <h2>הרוצח השקט: פלואוריד</h2>
+                
+                <div class="grid-2">
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                        <div style="font-size: 160px; font-weight: 900; color: var(--hazmat-yellow); line-height: 1;">2%</div>
+                        <div style="font-size: 1.5em; font-weight: bold;">ממסת החלקיקים</div>
+                    </div>
+                    
+                    <div>
+                        <div class="hazard-box">
+                            <h3 style="color: var(--hazmat-orange); margin: 0;"><i class="fa-solid fa-triangle-exclamation"></i> מנגנון הפגיעה</h3>
+                            <hr style="border-color: rgba(0,0,0,0.2);">
+                            <p>במגע עם לחות (זיעה, ריאות), חלקיקי הפלואוריד הופכים ל-</p>
+                            <h2 style="color: var(--hazmat-red); border: none; margin: 10px 0;">חומצה הידרופלואורית (HF)</h2>
+                            <ul style="font-size: 0.9em;">
+                                <li>חודרת עמוק לרקמות ולעצם.</li>
+                                <li>גורמת לכוויות כימיות מאוחרות.</li>
+                                <li>רעילות מערכתית (הפרעות קצב לב).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 6: MUTAGENICITY (BIOLOGY) -->
+            <section>
+                <h2>השפעה גנטית (Mutagenicity)</h2>
+                <p>המחקר ביצע <strong>Ames Test</strong>: חשיפת חיידקים לעשן ובדיקת שינויים ב-DNA.</p>
+                
+                <div class="grid-2">
+                    <div class="stat-card" style="background: rgba(239, 68, 68, 0.1); border-color: var(--hazmat-red);">
+                        <i class="fa-solid fa-dna"></i>
+                        <h4>ממצאי המעבדה</h4>
+                        <p>החומרים האורגניים בעשן הרכב החשמלי הראו <strong>סבירות גבוהה יותר</strong> לגרום למוטציות מאשר עשן רגיל.</p>
+                    </div>
+                    <div style="display: flex; flex-direction: column; justify-content: center;">
+                        <p class="fragment fade-in">
+                            <i class="fa-solid fa-arrow-left" style="color: var(--hazmat-orange);"></i> משמעות:
+                            <br> פוטנציאל מסרטן גבוה יותר לטווח הארוך עבור לוחמי האש.
+                        </p>
+                        <p class="fragment fade-in" style="margin-top: 20px;">
+                            <i class="fa-solid fa-arrow-left" style="color: var(--hazmat-orange);"></i> המקור:
+                            <br> השילוב הייחודי של פלסטיק שרוף + אלקטרוליטים + מתכות.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: OPERATIONAL SUMMARY -->
+            <section data-background-image="http://googleusercontent.com/generated_image_content/0" data-background-opacity="0.2">
+                <h2>השלכות ללוחם האש</h2>
+                <div class="grid-3">
+                    <div class="stat-card">
+                        <i class="fa-solid fa-mask-ventilator"></i>
+                        <h4>נשימה (SCBA)</h4>
+                        <p>חובה בכל שלב, כולל ב-Overhaul. אין להסיר מסיכה גם כשהעשן נראה דליל. החלקיקים המזיקים ביותר הם הבלתי נראים.</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fa-solid fa-shower"></i>
+                        <h4>טיהור (Decon)</h4>
+                        <p>מתכות כבדות לא מתפרקות בשמש. חובה לבצע טיהור יסודי ("מקלחת") בשטח וכביסה מקצועית.</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fa-solid fa-hand-dots"></i>
+                        <h4>עור</h4>
+                        <p>כיסוי מלא. מנע מגע של העשן עם הזיעה (סכנת HF). נקה אזורים חשופים (צוואר, ידיים) מיד.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 8: END & LINK -->
+            <section>
+                <div class="glass-panel">
+                    <h1 style="font-size: 2em;">הידע הוא המיגון הטוב ביותר</h1>
+                    <hr style="border-color: var(--hazmat-orange); width: 100px; margin: 30px auto;">
+                    
+                    <a href="https://link.springer.com/article/10.1007/s11356-025-37210-9" target="_blank" style="display: inline-block; background: var(--hazmat-orange); color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-bottom: 30px; transition: transform 0.2s;">
+                        <i class="fa-solid fa-external-link-alt"></i> למחקר המלא (Springer)
+                    </a>
+                    
+                    <div style="text-align: center; color: #888; font-size: 0.8em; margin-top: 20px;">
+                        <p>Chemical components of electric vehicle and internal combustion engine vehicle fire smoke and their mutagenic effects<br>
+                        Kim et al. (2025) | FSRI, UL, EPA, NIOSH</p>
+                        <p style="color: var(--hazmat-orange);">נותח ע"י רועי צוקרמן</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            rtl: true,
+            transition: 'convex',
+            backgroundTransition: 'zoom',
+            controls: true,
+            progress: true,
+            center: true,
+            slideNumber: true
+        });
+    </script>
+</body>
+</html>
+
+

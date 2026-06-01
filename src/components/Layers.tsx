@@ -73,6 +73,8 @@ export default function Layers() {
             <span className="flex-1 border-t border-dashed border-red-500/30" />
             👤 {t('layers.tl')}
           </div>
+
+          <p className="text-[11px] text-gray-500 leading-relaxed mt-5 text-center">{t('layers.cap')}</p>
         </motion.div>
 
         {/* explanatory cards */}

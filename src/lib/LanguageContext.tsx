@@ -96,8 +96,9 @@ const dict: Record<string, Record<Lang, string>> = {
 
   // ── Layers ───────────────────────────────────────────
   'layers.title': { he: 'הזיהום חודר פנימה', en: 'Contamination Goes Inward' },
-  'layers.subtitle': { he: 'גם השכבה שנוגעת בעור אינה חסינה', en: 'Even the skin-contact layer isn\'t safe' },
-  'layers.intro': { he: 'המעטפת החיצונית סופגת את רוב הזיהום — אבל לא הכול. מתכות ו-PAH קלים חדרו פנימה, עד הבטנה שנוגעת בעור. זהו מסלול חשיפה נוסף, שנשאר שעות אחרי השריפה אם לא מטהרים.', en: 'The outer shell soaks up most of it — but not all. Metals and light PAHs reached inward, down to the skin-contact liner. That\'s a second exposure route, lasting hours after the fire if gear isn\'t cleaned.' },
+  'layers.subtitle': { he: 'שלוש שכבות חליפת המגן של לוחם האש', en: 'The three layers of the firefighter\'s turnout gear' },
+  'layers.intro': { he: 'חליפת המגן (חליפת התקיפה) של לוחם האש בנויה משלוש שכבות. המעטפת החיצונית סופגת את רוב הזיהום — אבל לא הכול. מתכות ו-PAH קלים חדרו פנימה, עד הבטנה שנוגעת בעור. זהו מסלול חשיפה נוסף, שנשאר שעות אחרי השריפה אם לא מטהרים.', en: 'A firefighter\'s protective turnout suit is built from three layers. The outer shell soaks up most of the contamination — but not all. Metals and light PAHs reached inward, down to the skin-contact liner. That\'s a second exposure route, lasting hours after the fire if gear isn\'t cleaned.' },
+  'layers.cap': { he: 'האחוזים = חלקו של הזיהום שנמצא בכל שכבה (Probert et al., 2026)', en: 'Percentages = share of contamination found in each layer (Probert et al., 2026)' },
   'layers.os': { he: 'מעטפת חיצונית (OS)', en: 'Outer Shell (OS)' },
   'layers.os.d': { he: 'קו ההגנה הראשון — סופג את רוב המתכות וה-PAH הכבדים.', en: 'First line of defense — soaks up most metals and heavy PAHs.' },
   'layers.mb': { he: 'מחסום לחות (MB)', en: 'Moisture Barrier (MB)' },
@@ -105,7 +106,7 @@ const dict: Record<string, Record<Lang, string>> = {
   'layers.tl': { he: 'בטנה תרמית (TL)', en: 'Thermal Liner (TL)' },
   'layers.tl.d': { he: 'נוגעת בעור. זיהום כאן = מגע ישיר עם העור.', en: 'Touches the skin. Contamination here = direct skin contact.' },
   'layers.skin': { he: '← נוגעת בעור', en: '← Skin' },
-  'layers.dist': { he: 'עומק חדירת הזיהום בשכבות', en: 'How deep contamination reaches' },
+  'layers.dist': { he: 'עומק חדירת הזיהום בשכבות חליפת המגן', en: 'How deep contamination reaches in the turnout gear' },
   'layers.legend': { he: 'מתכות סוללה ו-PAH קלים', en: 'Battery metals & light PAHs' },
 
   // ── PAH ──────────────────────────────────────────────

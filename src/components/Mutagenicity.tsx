@@ -33,7 +33,7 @@ export default function Mutagenicity() {
     <Section id="mutagen" eyebrow="Kim et al. 2025 · Ames Test" title={t('mutagen.title')} subtitle={t('mutagen.subtitle')} wide>
       <motion.p
         initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-        className="text-center text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed fs-body"
+        className="text-center text-gray-300 max-w-3xl mx-auto mb-16 leading-relaxed fs-body"
       >
         {t('mutagen.intro')}
       </motion.p>

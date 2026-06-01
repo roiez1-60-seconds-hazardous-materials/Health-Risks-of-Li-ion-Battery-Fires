@@ -21,7 +21,7 @@ export default function Pah() {
     <Section id="pah" eyebrow="Probert et al. 2026" title={t('pah.title')} subtitle={t('pah.subtitle')} wide>
       <motion.p
         initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-        className="text-center text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed fs-body"
+        className="text-center text-gray-300 max-w-3xl mx-auto mb-14 leading-relaxed fs-body"
       >
         {t('pah.intro')}
       </motion.p>

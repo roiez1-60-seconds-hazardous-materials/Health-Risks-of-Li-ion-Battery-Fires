@@ -46,13 +46,13 @@ export default function Metals() {
     <Section id="metals" eyebrow="Probert et al. 2026" title={t('metals.title')} subtitle={t('metals.subtitle')} wide>
       <motion.p
         initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-        className="text-center text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed fs-body"
+        className="text-center text-gray-300 max-w-3xl mx-auto mb-14 leading-relaxed fs-body"
       >
         {t('metals.intro')}
       </motion.p>
 
       {/* metal cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
         {metalCards.map((m, i) => (
           <motion.div
             key={m.k}
@@ -70,7 +70,7 @@ export default function Metals() {
         ))}
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-6 items-stretch">
+      <div className="grid lg:grid-cols-2 gap-7 items-stretch">
         {/* mass fraction comparison */}
         <motion.div
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}

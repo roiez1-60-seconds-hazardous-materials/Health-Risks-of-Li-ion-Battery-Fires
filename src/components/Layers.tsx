@@ -18,7 +18,7 @@ export default function Layers() {
     <Section id="layers" eyebrow="Probert et al. 2026" title={t('layers.title')} subtitle={t('layers.subtitle')} wide>
       <motion.p
         initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-        className="text-center text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed fs-body"
+        className="text-center text-gray-300 max-w-3xl mx-auto mb-16 leading-relaxed fs-body"
       >
         {t('layers.intro')}
       </motion.p>

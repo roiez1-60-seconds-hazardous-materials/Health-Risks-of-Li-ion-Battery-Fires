@@ -21,13 +21,13 @@ export default function Scope() {
     <Section id="scope" eyebrow="FSRI · 2025–2026" title={t('scope.title')} subtitle={t('scope.subtitle')} wide>
       <motion.p
         initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-        className="text-center text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed fs-body"
+        className="text-center text-gray-300 max-w-3xl mx-auto mb-14 leading-relaxed fs-body"
       >
         {t('scope.intro')}
       </motion.p>
 
       {/* metric strip */}
-      <div className="grid grid-cols-3 gap-3 sm:gap-5 mb-12 max-w-3xl mx-auto">
+      <div className="grid grid-cols-3 gap-3 sm:gap-5 mb-14 max-w-3xl mx-auto">
         {metrics.map((m, i) => (
           <motion.div
             key={m.k}

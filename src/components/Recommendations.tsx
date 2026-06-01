@@ -48,7 +48,7 @@ export default function Recommendations() {
     <Section id="recommend" eyebrow="Operational Guidance" title={t('rec.title')} subtitle={t('rec.subtitle')} wide>
       <motion.p
         initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-        className="text-center text-gray-300 max-w-3xl mx-auto mb-14 leading-relaxed fs-body"
+        className="text-center text-gray-300 max-w-3xl mx-auto mb-16 leading-relaxed fs-body"
       >
         {t('rec.intro')}
       </motion.p>
@@ -57,7 +57,7 @@ export default function Recommendations() {
         {/* vertical spine (desktop) */}
         <div className="hidden md:block absolute top-0 bottom-0 start-[27px] w-px bg-gradient-to-b from-amber-500/40 via-orange-500/30 to-red-500/40" />
 
-        <div className="space-y-12">
+        <div className="space-y-16 sm:space-y-20">
           {PHASES.map((phase, pi) => (
             <motion.div
               key={phase.key}

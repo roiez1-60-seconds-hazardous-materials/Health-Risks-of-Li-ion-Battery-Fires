@@ -31,7 +31,7 @@ function PlumeViz({ label }: { label: string }) {
       {/* plume zone marker (top) */}
       <div className="absolute top-6 inset-x-0 text-center z-10">
         <span ref={ref} className="text-6xl sm:text-7xl font-black gradient-fire leading-none">{display}×</span>
-        <div className="text-xs text-amber-300/80 font-bold mt-1 tracking-wide">PLUME · נוצת העשן</div>
+        <div className="text-xs text-amber-300/80 font-bold mt-1 tracking-wide">PLUME · פלומת העשן</div>
       </div>
 
       {/* divider line */}

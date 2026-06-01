@@ -50,7 +50,13 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  line-height: 1.75;
 }
+
+/* Comfortable reading rhythm — Hebrew needs generous line-height */
+p { line-height: 1.85; }
+h1, h2, h3, h4 { line-height: 1.25; }
+li { line-height: 1.8; }
 
 section { max-width: 100vw; overflow-x: clip; }
 
@@ -118,11 +124,17 @@ section { max-width: 100vw; overflow-x: clip; }
 .text-balance { text-wrap: balance; }
 .hairline { border-bottom: 1px solid var(--border); }
 
-.fs-hero { font-size: var(--fs-hero); line-height: 1.04; }
-.fs-h2   { font-size: var(--fs-h2);   line-height: 1.1; }
-.fs-h3   { font-size: var(--fs-h3);   line-height: 1.25; }
-.fs-lead { font-size: var(--fs-lead); }
-.fs-body { font-size: var(--fs-body); }
+.fs-hero { font-size: var(--fs-hero); line-height: 1.06; }
+.fs-h2   { font-size: var(--fs-h2);   line-height: 1.15; }
+.fs-h3   { font-size: var(--fs-h3);   line-height: 1.3; }
+.fs-lead { font-size: var(--fs-lead); line-height: 1.7; }
+.fs-body { font-size: var(--fs-body); line-height: 1.85; }
+
+/* Open up reading rhythm — these unlayered rules override Tailwind's
+   layered leading utilities, so every paragraph gets comfortable spacing. */
+.leading-relaxed { line-height: 1.85; }
+.leading-snug    { line-height: 1.55; }
+.leading-normal  { line-height: 1.75; }
 
 /* Glow chip / pill */
 .pulse-dot {

@@ -59,7 +59,6 @@ export default function Layers() {
                       {t(`layers.${l.k}`)}
                       {l.skin && <span className="text-red-200 text-[10px] font-bold px-2 py-0.5 rounded-full bg-red-600/40 border border-red-300/40">{t('layers.skin')}</span>}
                     </div>
-                    <div className="text-white/80 text-xs mt-1 max-w-md leading-snug">{t(`layers.${l.k}.d`)}</div>
                   </div>
                   <div dir="ltr" className="relative z-10 text-xl sm:text-2xl font-black text-white/90 tabular-nums shrink-0">
                     {l.range}

@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import { TriangleAlert, ChevronDown, ArrowDown, ShieldCheck } from 'lucide-react';
+import { TriangleAlert, ChevronDown, ArrowDown, ShieldCheck, BatteryWarning, Flame } from 'lucide-react';
 import { useLang } from '@/lib/LanguageContext';
 import { useCountUp } from '@/lib/useCountUp';
 
@@ -43,10 +43,18 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.7 }}
-          className="flex justify-center mb-7"
+          className="flex justify-center mb-8"
         >
-          <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 border-amber-500/40 shadow-2xl shadow-amber-500/30 flame-flicker">
-            <img src="/images/logo-60sec.png" alt="60 שניות חומ״ס" className="w-full h-full object-cover" />
+          <div className="relative w-24 h-24 sm:w-28 sm:h-28">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-amber-500/25 to-red-500/25 blur-xl" />
+            <div className="relative w-full h-full rounded-full grid place-items-center border-2 border-amber-500/40 glass-strong shadow-2xl shadow-amber-500/30">
+              <BatteryWarning className="text-amber-300" size={46} strokeWidth={1.6} aria-label="סוללת ליתיום" />
+              <Flame
+                className="absolute left-1/2 -translate-x-1/2 top-1.5 text-orange-500 flame-flicker"
+                size={28}
+                fill="currentColor"
+              />
+            </div>
           </div>
         </motion.div>
 

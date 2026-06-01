@@ -163,7 +163,7 @@ const dict: Record<string, Record<Lang, string>> = {
   'rec.p1.a.t': { he: 'התקרב נגד הרוח', en: 'Approach Upwind' },
   'rec.p1.a.d': { he: 'הפלומה נושאת עד פי 10 מתכות. התמקם תמיד נגד הרוח ומתחת לפלומה. הימנע מעמדה גבוהה מעל הרכב.', en: 'The plume carries up to 10× the metals. Always stay upwind and clear of it. Avoid a position above the vehicle.' },
   'rec.p1.b.t': { he: 'התייחס לזה כחומ"ס', en: 'Treat It as HazMat' },
-  'rec.p1.b.d': { he: 'הגדר אזורי חם/חמים/קר והרחק קהל וצוותים מיותרים. זו פליטה של מתכות, פלואוריד ועשן מוטגני — לא רק חום.', en: 'Set hot/warm/cold zones; keep the public and extra crews back. This emits metals, fluoride and mutagenic smoke — not just heat.' },
+  'rec.p1.b.d': { he: 'הגדר אזור חם, פושר וקר והרחק קהל וצוותים מיותרים. זו פליטה של מתכות, פלואוריד ועשן מוטגני — לא רק חום.', en: 'Set hot, warm and cold zones; keep the public and extra crews back. This emits metals, fluoride and mutagenic smoke — not just heat.' },
 
   'rec.p2.phase': { he: 'שלב 2 · כיבוי וטיפול', en: 'Phase 2 · Suppression' },
   'rec.p2.a.t': { he: 'מנ"פ (SCBA) — תמיד', en: 'SCBA — Always' },

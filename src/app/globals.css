@@ -60,6 +60,14 @@ li { line-height: 1.8; }
 
 section { max-width: 100vw; overflow-x: clip; }
 
+/* Alternating section "windows" — gives each section clear visual separation */
+.section-band:nth-of-type(even) {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.008));
+}
+.section-band:nth-of-type(odd) {
+  background: linear-gradient(180deg, rgba(245, 158, 11, 0.015), transparent);
+}
+
 /* Ambient backdrop behind everything */
 .app-backdrop {
   position: fixed;

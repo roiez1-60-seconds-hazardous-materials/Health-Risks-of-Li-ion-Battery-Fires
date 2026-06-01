@@ -9,7 +9,7 @@ import Layers from '@/components/Layers';
 import Pah from '@/components/Pah';
 import Fluoride from '@/components/Fluoride';
 import Mutagenicity from '@/components/Mutagenicity';
-import Operational from '@/components/Operational';
+import Recommendations from '@/components/Recommendations';
 import Sources from '@/components/Sources';
 import Footer from '@/components/Footer';
 
@@ -26,7 +26,7 @@ export default function Home() {
       <Pah />
       <Fluoride />
       <Mutagenicity />
-      <Operational />
+      <Recommendations />
       <Sources />
       <Footer />
     </main>

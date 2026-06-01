@@ -1,19 +1,191 @@
 @import "tailwindcss";
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-body { background: #0d0d1a; color: #e2e8f0; overflow-x: hidden; }
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0d0d1a; }
-::-webkit-scrollbar-thumb { background: #f59e0b; border-radius: 3px; }
-[dir="rtl"] { text-align: right; }
+/* ============================================================
+   Design tokens
+   ============================================================ */
+:root {
+  --bg: #07070e;
+  --bg-soft: #0d0d1a;
+  --surface: rgba(255, 255, 255, 0.035);
+  --surface-2: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(245, 158, 11, 0.35);
 
-html, body { max-width: 100vw; overflow-x: hidden; }
-section { max-width: 100vw; overflow-x: hidden; }
+  --fire-1: #fbbf24; /* amber  */
+  --fire-2: #f59e0b;
+  --fire-3: #f97316; /* orange */
+  --danger: #ef4444; /* red    */
+  --danger-deep: #b91c1c;
+  --electric: #38bdf8; /* cyan — the EV / electric accent */
+  --electric-deep: #0ea5e9;
+
+  --text: #e8edf6;
+  --text-dim: #9aa6b8;
+  --text-faint: #64708a;
+
+  /* Fluid type scale — scales smoothly phone → desktop */
+  --fs-hero: clamp(2.5rem, 7vw, 5.5rem);
+  --fs-h2: clamp(1.75rem, 4vw, 3.25rem);
+  --fs-h3: clamp(1.1rem, 1.8vw, 1.5rem);
+  --fs-lead: clamp(1rem, 1.6vw, 1.35rem);
+  --fs-body: clamp(0.9rem, 1.2vw, 1.05rem);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+  -webkit-text-size-adjust: 100%;
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+section { max-width: 100vw; overflow-x: clip; }
+
+/* Ambient backdrop behind everything */
+.app-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -20;
+  background:
+    radial-gradient(60vw 60vw at 80% -10%, rgba(245, 158, 11, 0.10), transparent 60%),
+    radial-gradient(55vw 55vw at 10% 15%, rgba(239, 68, 68, 0.08), transparent 60%),
+    radial-gradient(70vw 70vw at 50% 110%, rgba(56, 189, 248, 0.07), transparent 60%),
+    var(--bg);
+}
+
+/* ============================================================
+   Scrollbar
+   ============================================================ */
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--fire-2), var(--danger));
+  border-radius: 10px;
+  border: 2px solid var(--bg);
+}
+::selection { background: rgba(245, 158, 11, 0.35); color: #fff; }
+
+[dir="rtl"] { text-align: right; }
 .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
+/* ============================================================
+   Reusable utilities
+   ============================================================ */
+.glass {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.glass-strong {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+.card-hover { transition: transform .35s cubic-bezier(.2,.7,.3,1), border-color .35s, box-shadow .35s; }
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 50px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(245,158,11,.15);
+}
+
+.gradient-fire {
+  background: linear-gradient(110deg, var(--fire-1), var(--fire-3) 45%, var(--danger));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.gradient-electric {
+  background: linear-gradient(110deg, #7dd3fc, var(--electric));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-balance { text-wrap: balance; }
+.hairline { border-bottom: 1px solid var(--border); }
+
+.fs-hero { font-size: var(--fs-hero); line-height: 1.04; }
+.fs-h2   { font-size: var(--fs-h2);   line-height: 1.1; }
+.fs-h3   { font-size: var(--fs-h3);   line-height: 1.25; }
+.fs-lead { font-size: var(--fs-lead); }
+.fs-body { font-size: var(--fs-body); }
+
+/* Glow chip / pill */
+.pulse-dot {
+  position: relative;
+}
+.pulse-dot::after {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: 9999px;
+  box-shadow: 0 0 0 0 rgba(239,68,68,.6);
+  animation: ring 2.2s ease-out infinite;
+}
+
+/* ============================================================
+   Keyframe animations
+   ============================================================ */
 @keyframes flicker {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.85; transform: scale(1.03); }
+  50% { opacity: 0.82; transform: scale(1.04); }
 }
-.flame-flicker { animation: flicker 2.5s ease-in-out infinite; }
+.flame-flicker { animation: flicker 2.6s ease-in-out infinite; }
+
+@keyframes ring {
+  0% { box-shadow: 0 0 0 0 rgba(239,68,68,.5); }
+  70% { box-shadow: 0 0 0 10px rgba(239,68,68,0); }
+  100% { box-shadow: 0 0 0 0 rgba(239,68,68,0); }
+}
+
+@keyframes float-up {
+  0% { transform: translateY(0); opacity: .0; }
+  10% { opacity: .8; }
+  100% { transform: translateY(-120px); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2.6s linear infinite;
+}
+
+@keyframes drift {
+  0%,100% { transform: translate(0,0); }
+  50% { transform: translate(20px, -16px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: .55; }
+  50% { opacity: 1; }
+}
+.pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+
+/* ============================================================
+   Reduced motion — respect accessibility
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

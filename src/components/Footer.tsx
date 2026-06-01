@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { MessageCircle, Mail } from 'lucide-react';
 import { useLang } from '@/lib/LanguageContext';
+import ViewCounter from './ViewCounter';
 
 const WHATSAPP_LINK = 'https://chat.whatsapp.com/K4NzcZucmimKYFOXE3VVtD?mode=gi_t';
 
@@ -44,6 +45,10 @@ export default function Footer() {
         <div className="flex items-center justify-center gap-2 text-gray-500 text-sm">
           <Mail size={14} />
           <a href="mailto:roiez1@gmail.com" className="hover:text-amber-400 transition-colors">roiez1@gmail.com</a>
+        </div>
+
+        <div className="mt-6 flex justify-center">
+          <ViewCounter />
         </div>
       </div>
     </footer>

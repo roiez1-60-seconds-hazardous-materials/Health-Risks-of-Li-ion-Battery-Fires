@@ -81,7 +81,7 @@ const dict: Record<string, Record<Lang, string>> = {
   'metals.note': { he: 'מתכות הסוללה גבוהות בהרבה ב-EV. עופרת ואבץ דווקא בולטים יותר ברכב בנזין — ממצבר העופרת וחלקי הרכב (Probert et al., 2026).', en: 'Battery metals are far higher in EVs. Lead and zinc are higher in gasoline cars — from the lead-acid battery and body parts (Probert et al., 2026).' },
 
   // ── Plume vs body ────────────────────────────────────
-  'ppe.title': { he: 'פלומת העשן היא אזור ההרג', en: 'The Plume Is the Danger Zone' },
+  'ppe.title': { he: 'פלומת העשן — אזור הסיכון הגבוה ביותר', en: 'The Plume Is the Danger Zone' },
   'ppe.subtitle': { he: 'גובה החשיפה קובע את עוצמת הזיהום', en: 'Exposure height sets the contamination level' },
   'ppe.plumeNum': { he: 'פי 10', en: '10×' },
   'ppe.plumeLabel': { he: 'יותר מתכות בפלומה מאשר בגובה הגוף', en: 'more metals in the plume than at body level' },

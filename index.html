@@ -122,6 +122,42 @@
         .fill-ev { background: linear-gradient(90deg, #ff5e00, #ff0000); width: 85%; }
         .fill-ice { background: #555; width: 25%; }
 
+        /* Data Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+        .data-table th, .data-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .data-table th {
+            background: rgba(255, 94, 0, 0.15);
+            color: var(--hazmat-orange);
+            font-weight: 800;
+            font-family: 'Heebo', sans-serif;
+        }
+        .data-table td:first-child { text-align: right; font-weight: bold; color: #fff; }
+        .data-table .ev-col { color: #ff6b35; font-weight: bold; }
+        .data-table .ice-col { color: #9ca3af; }
+        .data-table tr:hover td { background: rgba(255,255,255,0.03); }
+
+        .source-tag {
+            margin-top: 30px;
+            font-size: 0.75em;
+            color: #777;
+            font-style: italic;
+        }
+
+        /* Layer penetration bars */
+        .layer-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .layer-name { width: 90px; text-align: right; font-weight: bold; font-size: 0.9em; }
+        .layer-track { flex: 1; background: #333; height: 26px; border-radius: 4px; overflow: hidden; }
+        .layer-fill { height: 100%; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; color: #fff; font-size: 0.75em; font-weight: bold; }
+
         /* Credits */
         .credits {
             margin-top: 50px;
@@ -301,6 +337,124 @@
                 </div>
             </section>
 
+            <!-- SLIDE NEW-A: PPE CONTAMINATION STUDY -->
+            <section>
+                <div style="border: 2px solid var(--hazmat-orange); padding: 8px 18px; display: inline-block; border-radius: 50px; margin-bottom: 20px; color: var(--hazmat-orange); font-weight: bold; font-size: 0.9em;">
+                    <i class="fa-solid fa-flask"></i> מחקר משלים — FSRI 2026
+                </div>
+                <h2>הזיהום נשאר על הבגד</h2>
+                <p>מחקר חדש של מכון FSRI (Probert et al., 2026) הוא הראשון שכימת זיהום של <strong>מתכות ו-PAH על ביגוד המגן עצמו</strong> אחרי שריפת רכב חשמלי מלאה — והשווה אותו לרכב בנזין.</p>
+
+                <div class="grid-3" style="margin-top: 30px;">
+                    <div class="stat-card">
+                        <i class="fa-solid fa-car-burst"></i>
+                        <h4>6 EV + 3 ICEV</h4>
+                        <p>שריפה עד כילוי במעבדה סגורה, ללא כיבוי.</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <h4>3 שכבות בנפרד</h4>
+                        <p>מעטפת חיצונית (OS), מחסום לחות (MB), בטנה תרמית (TL).</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fa-solid fa-location-crosshairs"></i>
+                        <h4>2 מיקומים</h4>
+                        <p>גובה חזה ברצפה (3–4.5 מ') ובתוך נוצת העשן (9 מ').</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE NEW-B: METAL NUMBERS TABLE -->
+            <section>
+                <h2>המספרים: מתכות על הבגד</h2>
+                <p style="font-size: 1.1em;">ריכוז מתכות כולל על המעטפת החיצונית (OS) ברמת הרצפה:</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>מדד</th>
+                            <th>רכב חשמלי (EV)</th>
+                            <th>רכב בנזין (ICEV)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>מתכות כולל (רצפה)</td>
+                            <td class="ev-col">455–1645 ng/cm²</td>
+                            <td class="ice-col">133–904 ng/cm²</td>
+                        </tr>
+                        <tr>
+                            <td>ניקל בנוצה (OS)</td>
+                            <td class="ev-col">1322–8437 ng/cm²</td>
+                            <td class="ice-col">נמוך</td>
+                        </tr>
+                        <tr>
+                            <td>ניקל ברצפה (OS)</td>
+                            <td class="ev-col">161–538 ng/cm²</td>
+                            <td class="ice-col">נמוך</td>
+                        </tr>
+                        <tr>
+                            <td>עופרת (Pb)</td>
+                            <td class="ev-col">נמוך</td>
+                            <td class="ice-col">גבוה יותר ←</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="hazard-box" style="margin-top: 25px;">
+                    <p style="margin: 0; font-size: 1em;"><i class="fa-solid fa-triangle-exclamation" style="color: var(--hazmat-yellow);"></i> מתכות הסוללה (Ni, Co, Mn, Li) גבוהות מובהקת ב-EV. <strong>עופרת</strong> דווקא גבוהה יותר ב-ICEV — בגלל מצבר העופרת.</p>
+                </div>
+            </section>
+
+            <!-- SLIDE NEW-C: PLUME VS FLOOR + LAYER PENETRATION -->
+            <section>
+                <h2>איפה הזיהום מצטבר</h2>
+                <div class="grid-2" style="align-items: start;">
+                    <div>
+                        <h4 style="color: var(--hazmat-orange);"><i class="fa-solid fa-smog"></i> נוצה מול רצפה</h4>
+                        <p style="font-size: 1.05em;">בנוצת העשן ריכוז המתכות על המעטפת החיצונית היה גבוה <strong>עד פי 10</strong> מרמת הרצפה.</p>
+                        <p style="font-size: 0.95em; opacity: 0.85;">משמעות מבצעית: חשיפה בחלל סגור (חניון תת-קרקעי, מנהרה) שבו העשן לא מתפזר — מסוכנת בהרבה.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--hazmat-orange);"><i class="fa-solid fa-layer-group"></i> חדירה לשכבות (רצפה, EV)</h4>
+                        <div class="layer-bar">
+                            <span class="layer-name">מעטפת (OS)</span>
+                            <div class="layer-track"><div class="layer-fill" style="width: 84%; background: linear-gradient(90deg,#ff5e00,#ff0000);">61–84%</div></div>
+                        </div>
+                        <div class="layer-bar">
+                            <span class="layer-name">מחסום (MB)</span>
+                            <div class="layer-track"><div class="layer-fill" style="width: 21%; background: #c2410c;">3–21%</div></div>
+                        </div>
+                        <div class="layer-bar">
+                            <span class="layer-name">בטנה (TL)</span>
+                            <div class="layer-track"><div class="layer-fill" style="width: 30%; background: #92400e;">0–30%</div></div>
+                        </div>
+                        <p style="font-size: 0.85em; opacity: 0.8; margin-top: 15px;">ברמת הרצפה מתכות סוללה חדרו גם למחסום הלחות ולבטנה התרמית — השכבה שנוגעת בעור.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE NEW-D: PAH FINDINGS -->
+            <section>
+                <h2>ומה עם ה-PAH?</h2>
+                <p>הפחמימנים הארומטיים (PAH) הם תוצר בעירה מסרטן ידוע. כאן הממצא מפתיע:</p>
+
+                <div class="grid-2" style="margin-top: 20px;">
+                    <div class="stat-card" style="border-color: var(--hazmat-yellow);">
+                        <i class="fa-solid fa-equals" style="color: var(--hazmat-yellow);"></i>
+                        <h4>דומה בין EV ל-ICEV</h4>
+                        <p>סך ה-PAH על הבגד נע בין 0.27 ל-3.96 ng/cm² בשני סוגי הרכב — <strong>ללא הבדל מובהק</strong>. שריפת בעירה היא שריפת בעירה.</p>
+                    </div>
+                    <div class="stat-card" style="border-color: var(--hazmat-red);">
+                        <i class="fa-solid fa-arrows-down-to-line" style="color: var(--hazmat-red);"></i>
+                        <h4>הקלים חודרים עמוק</h4>
+                        <p>PAH במשקל מולקולרי נמוך (≤3 טבעות) נמצאו בכל שלוש השכבות — כולל זו שנוגעת בעור. הכבדים נשארו בעיקר על המעטפת החיצונית.</p>
+                    </div>
+                </div>
+
+                <p class="source-tag"><i class="fa-solid fa-circle-info"></i> רמות ה-PAH דומות לאלו של לוחם הפועל בעמדת אוורור חיצונית בשריפת מבנה — נמוכות יותר מתקיפה פנימית, אך עדיין נוכחות על הבגד.</p>
+            </section>
+
             <!-- SLIDE 7: OPERATIONAL SUMMARY -->
             <section data-background-image="http://googleusercontent.com/generated_image_content/0" data-background-opacity="0.2">
                 <h2>השלכות ללוחם האש</h2>
@@ -313,7 +467,7 @@
                     <div class="stat-card">
                         <i class="fa-solid fa-shower"></i>
                         <h4>טיהור (Decon)</h4>
-                        <p>מתכות כבדות לא מתפרקות בשמש. חובה לבצע טיהור יסודי ("מקלחת") בשטח וכביסה מקצועית.</p>
+                        <p>מתכות כבדות לא מתפרקות בשמש. עדיפות לניקל, קובלט ומנגן. חובה טיהור יסודי ("מקלחת") בשטח וכביסה מקצועית — כולל הבטנה הפנימית.</p>
                     </div>
                     <div class="stat-card">
                         <i class="fa-solid fa-hand-dots"></i>
@@ -329,13 +483,13 @@
                     <h1 style="font-size: 2em;">הידע הוא המיגון הטוב ביותר</h1>
                     <hr style="border-color: var(--hazmat-orange); width: 100px; margin: 30px auto;">
                     
-                    <a href="https://link.springer.com/article/10.1007/s11356-025-37210-9" target="_blank" style="display: inline-block; background: var(--hazmat-orange); color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-bottom: 30px; transition: transform 0.2s;">
-                        <i class="fa-solid fa-external-link-alt"></i> למחקר המלא (Springer)
+                    <a href="https://doi.org/10.1016/j.firesaf.2026.104865" target="_blank" style="display: inline-block; background: var(--hazmat-orange); color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-bottom: 30px; transition: transform 0.2s;">
+                        <i class="fa-solid fa-external-link-alt"></i> למחקר ה-PPE המלא (Fire Safety Journal)
                     </a>
                     
                     <div style="text-align: center; color: #888; font-size: 0.8em; margin-top: 20px;">
-                        <p>Chemical components of electric vehicle and internal combustion engine vehicle fire smoke and their mutagenic effects<br>
-                        Kim et al. (2025) | FSRI, UL, EPA, NIOSH</p>
+                        <p>Probert et al. (2026) — Polycyclic aromatic hydrocarbon and metal contamination of firefighter turnout gear after full-scale electric vehicle fire exposure<br>
+                        <span style="opacity: 0.7;">Fire Safety Journal 163 · FSRI / UL Research Institutes · NC State</span></p>
                         <p style="color: var(--hazmat-orange);">נותח ע"י רועי צוקרמן</p>
                     </div>
                 </div>
